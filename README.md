@@ -6,7 +6,7 @@ The calculator features multiple operations, such as:
 - Add, Subtract, Division, Multiplication, Square Root, Changing the sign of the number, 1 divided by x, Raising to the power 2.
 - The app also provides fast calculations and shortcuts, such as pressing repedeatly on the '=' sign and repeating the same operation with the current result.
 
-The app also features **Memory**, where you can save various number and access them later.
+The app also features **Memory**, where you can save(**MEM**) various number and access(**M˅**) them later.
 ## Interface
 
 The interface is created in Microsoft Windows Forms, integrated in Visual Studio IDE. <br> <br>
