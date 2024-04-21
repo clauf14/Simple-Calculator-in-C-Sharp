@@ -22,7 +22,7 @@ The interface is created in Microsoft Windows Forms, integrated in Visual Studio
 1.Clone the project
 
 ```bash
-  git clone https://link-to-project](https://github.com/clauf14/Simple-Calculator-in-C-Sharp.git
+  git clone https://github.com/clauf14/Simple-Calculator-in-C-Sharp.git
 ```
 
 2.Go to the project/bin/debug director and open GUIDemo (application)
