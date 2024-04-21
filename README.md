@@ -5,6 +5,7 @@ This little project is about learning C# and about creating a simple calculator 
 The calculator features multiple operations, such as: 
 - Add, Subtract, Division, Multiplication, Square Root, Changing the sign of the number, 1 divided by x, Raising to the power 2.
 - The app also provides fast calculations and shortcuts, such as pressing repedeatly on the '=' sign and repeating the same operation with the current result.
+- Also includes one easter egg :) .
 
 The app also features **Memory**, where you can save(**MEM**) various number and access(**M˅**) them later.
 ## Interface
