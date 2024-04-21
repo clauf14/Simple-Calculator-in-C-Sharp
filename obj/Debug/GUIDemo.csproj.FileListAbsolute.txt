@@ -1,0 +1,10 @@
+X:\Learning\IALG-Anul-2-Sem-2\TAP\labs\lab6\GUIDemo\GUIDemo\bin\Debug\GUIDemo.exe.config
+X:\Learning\IALG-Anul-2-Sem-2\TAP\labs\lab6\GUIDemo\GUIDemo\bin\Debug\GUIDemo.exe
+X:\Learning\IALG-Anul-2-Sem-2\TAP\labs\lab6\GUIDemo\GUIDemo\bin\Debug\GUIDemo.pdb
+X:\Learning\IALG-Anul-2-Sem-2\TAP\labs\lab6\GUIDemo\GUIDemo\obj\Debug\GUIDemo.csproj.AssemblyReference.cache
+X:\Learning\IALG-Anul-2-Sem-2\TAP\labs\lab6\GUIDemo\GUIDemo\obj\Debug\GUIDemo.Form1.resources
+X:\Learning\IALG-Anul-2-Sem-2\TAP\labs\lab6\GUIDemo\GUIDemo\obj\Debug\GUIDemo.Properties.Resources.resources
+X:\Learning\IALG-Anul-2-Sem-2\TAP\labs\lab6\GUIDemo\GUIDemo\obj\Debug\GUIDemo.csproj.GenerateResource.cache
+X:\Learning\IALG-Anul-2-Sem-2\TAP\labs\lab6\GUIDemo\GUIDemo\obj\Debug\GUIDemo.csproj.CoreCompileInputs.cache
+X:\Learning\IALG-Anul-2-Sem-2\TAP\labs\lab6\GUIDemo\GUIDemo\obj\Debug\GUIDemo.exe
+X:\Learning\IALG-Anul-2-Sem-2\TAP\labs\lab6\GUIDemo\GUIDemo\obj\Debug\GUIDemo.pdb
