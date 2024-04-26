@@ -23,7 +23,11 @@ namespace GUIDemo
             InitializeComponent();
             rezultatMare.Text = "0";
             rezultatMic.ResetText();
-            
+            if (memorie.Count() == 0)
+            {
+                button_vizionare_memorie.Enabled = false;
+            }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -155,6 +159,17 @@ namespace GUIDemo
             rezultatMic.ResetText();
             count = 0;
             countEgal = 0;
+            button_adaugare_memorie.Enabled = true;
+            button_adunare.Enabled = true;
+            button_egal.Enabled = true;
+            button_radical.Enabled = true;
+            button_ridicare_putere.Enabled = true;
+            button_scadere.Enabled = true;
+            button_impartire.Enabled = true;
+            button_inmultire.Enabled = true;
+            button_schimba_semn.Enabled = true;
+            button_unu_impartit.Enabled = true;
+            button_virgula.Enabled = true;
         }
 
         private void button_delete_Click(object sender, EventArgs e)
@@ -162,14 +177,25 @@ namespace GUIDemo
             rezultatMare.Text = rezultatMare.Text
                 .Remove(rezultatMare.Text.Length - 1);
 
-            if(rezultatMare.Text.Contains("divide"))
+            if( rezultatMare.Text.Equals(string.Empty))
             {
                 rezultatMare.Text = "0";
             }
 
-            if(rezultatMare.Text.Equals(string.Empty))
+            if (rezultatMare.Text.Contains("Invalid") || rezultatMare.Text.Contains("divide"))
             {
                 rezultatMare.Text = "0";
+                button_adaugare_memorie.Enabled = true;
+                button_adunare.Enabled = true;
+                button_egal.Enabled = true;
+                button_radical.Enabled = true;
+                button_ridicare_putere.Enabled = true;
+                button_scadere.Enabled = true;
+                button_impartire.Enabled = true;
+                button_inmultire.Enabled = true;
+                button_schimba_semn.Enabled = true;
+                button_unu_impartit.Enabled = true;
+                button_virgula.Enabled = true;
             }
 
             if (!rezultatMare.Text.Contains("."))
@@ -192,9 +218,28 @@ namespace GUIDemo
 
         private void button_radical_Click(object sender, EventArgs e)
         {
-            calculator.Rezultat = Convert.ToDouble(rezultatMare.Text);
-            rezultatMare.Text = Convert.ToString(calculator.Radical());
+            if (rezultatMare.Text.Contains("-"))
+            {
+                rezultatMare.Text = "Invalid input";
+                button_adaugare_memorie.Enabled = false;
+                button_adunare.Enabled = false;
+                button_egal.Enabled = false;
+                button_radical.Enabled = false;
+                button_ridicare_putere.Enabled = false;
+                button_scadere.Enabled = false;
+                button_impartire.Enabled = false;
+                button_inmultire.Enabled = false;
+                button_schimba_semn.Enabled = false;
+                button_unu_impartit.Enabled = false;
+                button_virgula.Enabled = false;
+            }
+            else
+            {
+                calculator.Rezultat = Convert.ToDouble(rezultatMare.Text);
+                rezultatMare.Text = Convert.ToString(calculator.Radical());
+            }
         }
+
 
         private void button_unu_impartit_Click(object sender, EventArgs e)
         {
@@ -206,6 +251,17 @@ namespace GUIDemo
             else
             {
                 rezultatMare.Text = "Cannot divide by zero!";
+                button_adaugare_memorie.Enabled = false;
+                button_adunare.Enabled = false;
+                button_egal.Enabled = false;
+                button_radical.Enabled = false;
+                button_ridicare_putere.Enabled = false;
+                button_scadere.Enabled = false;
+                button_impartire.Enabled = false;
+                button_inmultire.Enabled = false;
+                button_schimba_semn.Enabled = false;
+                button_unu_impartit.Enabled = false;
+                button_virgula.Enabled = false;
             }
                 
             
@@ -219,8 +275,7 @@ namespace GUIDemo
         private void button_adaugare_memorie_Click(object sender, EventArgs e)
         {
             memorie.Add(rezultatMare.Text);
-            Console.WriteLine(rezultatMare.Text + " added to memory!");
-            countEgal = 1;
+            button_vizionare_memorie.Enabled = true;
         }
 
         private void button_vizionare_memorie_Click(object sender, EventArgs e)
@@ -235,8 +290,10 @@ namespace GUIDemo
                 }
             }
             else
+            {
                 message = "You did not add any number to the memory.\nPress `MEM` to add numbers!";
-            string title = "Memory";
+            }
+                string title = "Memory";
             MessageBoxButtons buttons = MessageBoxButtons.OK;
             MessageBox.Show(message, title, buttons, MessageBoxIcon.Asterisk);
         }
@@ -246,7 +303,7 @@ namespace GUIDemo
             if (count == 0)
             {
                 rezultatMic.Text = rezultatMare.Text + " /";
-                rezultatMare.ResetText();
+                rezultatMare.Text = "0";
                 count += 1;
             }
             else
@@ -254,6 +311,17 @@ namespace GUIDemo
                 if(rezultatMare.Text == "0" || rezultatMare.Text.Count() < 1 || rezultatMare.Text.Contains("divide"))
                 {
                     rezultatMare.Text = "Cannot divide by zero!";
+                    button_adaugare_memorie.Enabled = false;
+                    button_adunare.Enabled = false;
+                    button_egal.Enabled = false;
+                    button_radical.Enabled = false;
+                    button_ridicare_putere.Enabled = false;
+                    button_scadere.Enabled = false;
+                    button_impartire.Enabled = false;
+                    button_inmultire.Enabled = false;
+                    button_schimba_semn.Enabled = false;
+                    button_unu_impartit.Enabled = false;
+                    button_virgula.Enabled = false;
                 } else
                 {
                     calculator.Rezultat = Convert.ToDouble(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' ')));
@@ -271,7 +339,7 @@ namespace GUIDemo
             if (count == 0)
             {
                 rezultatMic.Text = rezultatMare.Text + " *";
-                rezultatMare.ResetText();
+                rezultatMare.Text = "0";
                 count += 1;
             }
             else
@@ -290,8 +358,7 @@ namespace GUIDemo
             if (count == 0)
             {
                 rezultatMic.Text = rezultatMare.Text + " -";
-                rezultatMare.ResetText();
-                count += 1;
+                rezultatMare.Text = "0";
             }
             else
             {
@@ -308,8 +375,9 @@ namespace GUIDemo
             if (count == 0)
             {
                 rezultatMic.Text = rezultatMare.Text + " +";
-                rezultatMare.ResetText();
+                rezultatMare.Text = "0";
                 count += 1;
+            
             } else
             {
                 calculator.Rezultat = Convert.ToDouble(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' ')));
@@ -322,97 +390,130 @@ namespace GUIDemo
 
         private void button_egal_Click(object sender, EventArgs e)
         {
-            string operation = rezultatMic.Text.Substring(rezultatMic.Text.IndexOf(' '), 2).Trim();
-
-            switch (operation)
+            if (!rezultatMic.Text.Equals(string.Empty))
             {
-                case "+":
-                    if (countEgal == 0)
-                    {
-                        calculator.Rezultat = Convert.ToDouble(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' ')));
-                        rezultatMic.Text += " " + rezultatMare.Text + "=";
-                        rezultatMare.Text = Convert.ToString(calculator.Aduna(Convert.ToDouble(rezultatMare.Text)));
-                    }
-                    else
-                    {
-                        rezultatMic.Text = rezultatMic.Text.Replace(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' '))
-                        , rezultatMare.Text);
-                        calculator.Rezultat = Convert.ToDouble(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' ')));
-                        Console.WriteLine(calculator.Rezultat);
-                        rezultatMare.Text = Convert.ToString(calculator.Aduna(Convert.ToDouble
-                            (rezultatMic.Text.Substring(rezultatMic.Text.LastIndexOf(' '), 2).Trim())));
-                    }
-                    countEgal++;
-                    break;
-                case "-":
-                    if (countEgal == 0)
-                    {
-                        calculator.Rezultat = Convert.ToDouble(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' ')));
-                        rezultatMic.Text += " " + rezultatMare.Text + "=";
-                        rezultatMare.Text = Convert.ToString(calculator.Scade(Convert.ToDouble(rezultatMare.Text)));
-                    }
-                    else
-                    {
-                        rezultatMic.Text = rezultatMic.Text.Replace(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' '))
-                        , rezultatMare.Text);
-                        calculator.Rezultat = Convert.ToDouble(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' ')));
-                        Console.WriteLine(calculator.Rezultat);
-                        rezultatMare.Text = Convert.ToString(calculator.Scade(Convert.ToDouble
-                            (rezultatMic.Text.Substring(rezultatMic.Text.LastIndexOf(' '), 2).Trim())));
-                    }
-                    countEgal++;
-                    break;
-                case "*":
-                    if (countEgal == 0)
-                    {
-                        calculator.Rezultat = Convert.ToDouble(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' ')));
-                        rezultatMic.Text += " " + rezultatMare.Text + "=";
-                        rezultatMare.Text = Convert.ToString(calculator.Inmulteste(Convert.ToDouble(rezultatMare.Text)));
-                    }
-                    else
-                    {
-                        rezultatMic.Text = rezultatMic.Text.Replace(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' '))
-                        , rezultatMare.Text);
-                        calculator.Rezultat = Convert.ToDouble(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' ')));
-                        Console.WriteLine(calculator.Rezultat);
-                        rezultatMare.Text = Convert.ToString(calculator.Inmulteste(Convert.ToDouble
-                            (rezultatMic.Text.Substring(rezultatMic.Text.LastIndexOf(' '), 2).Trim())));
-                    }
-                    countEgal++;
-                    break;
-                case "/":
-                    if (countEgal == 0)
-                    {
-                        
-                        if (!rezultatMic.Text.Substring(rezultatMic.Text.LastIndexOf(' '), 2).Trim().Equals("0"))
+                string operation = rezultatMic.Text.Substring(rezultatMic.Text.IndexOf(' '), 2).Trim();
+
+                switch (operation)
+                {
+                    case "+":
+                        if (countEgal == 0)
                         {
-                            calculator.Rezultat = Convert.ToDouble(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' ')));
-                            rezultatMic.Text += " " + rezultatMare.Text + "=";
-                            rezultatMare.Text = Convert.ToString(calculator.Imparte(Convert.ToDouble(rezultatMare.Text)));
+                            if (!rezultatMic.Text.Contains("="))
+                            {
+                                calculator.Rezultat = Convert.ToDouble(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' ')));
+                                rezultatMic.Text += " " + rezultatMare.Text + " =";
+                                rezultatMare.Text = Convert.ToString(calculator.Aduna(Convert.ToDouble(rezultatMare.Text)));
+                            }
+                            else
+                                Console.WriteLine(rezultatMic.Text.Replace('=', '+'));
                         }
                         else
                         {
-                            rezultatMare.Text = "Cannot divide by 0";
+                            rezultatMic.Text = ReplaceFirst(rezultatMic.Text, rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' '))
+                            , rezultatMare.Text);
+                            calculator.Rezultat = Convert.ToDouble(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' ')));
+                            Console.WriteLine(calculator.Rezultat);
+                            rezultatMare.Text = Convert.ToString(calculator.Aduna(Convert.ToDouble
+                                (rezultatMic.Text.Substring(rezultatMic.Text.IndexOf('+') + 1
+                                , rezultatMic.Text.LastIndexOf(' ') - rezultatMic.Text.IndexOf('+')).Trim())));
                         }
-                        
-                    }
-                    else
-                    {
-                        Console.WriteLine(rezultatMic.Text.Substring(rezultatMic.Text.LastIndexOf(' '), 2).Trim());
-                        if (!rezultatMic.Text.Substring(rezultatMic.Text.LastIndexOf(' '), 2).Trim().Equals("0")){
+                        countEgal++;
+                        break;
+                    case "-":
+                        if (countEgal == 0)
+                        {
+                            if (!rezultatMic.Text.Contains("="))
+                            {
+                                calculator.Rezultat = Convert.ToDouble(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' ')));
+                            rezultatMic.Text += " " + rezultatMare.Text + " =";
+                            rezultatMare.Text = Convert.ToString(calculator.Scade(Convert.ToDouble(rezultatMare.Text)));
+                            }
+                            else
+                                rezultatMic.Text.Replace('=', '-');
+                }
+                        else
+                        {
                             rezultatMic.Text = rezultatMic.Text.Replace(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' '))
                             , rezultatMare.Text);
                             calculator.Rezultat = Convert.ToDouble(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' ')));
                             Console.WriteLine(calculator.Rezultat);
-                            rezultatMare.Text = Convert.ToString(calculator.Imparte(Convert.ToDouble
-                                (rezultatMic.Text.Substring(rezultatMic.Text.LastIndexOf(' '), 2).Trim())));
-                        } else
-                        {
-                            rezultatMare.Text = "Cannot divide by 0";
+                            rezultatMare.Text = Convert.ToString(calculator.Scade(Convert.ToDouble
+                                (rezultatMic.Text.Substring(rezultatMic.Text.IndexOf('-') + 1
+                                , rezultatMic.Text.LastIndexOf(' ') - rezultatMic.Text.IndexOf('-')).Trim())));
                         }
-                    }
-                    countEgal++;
-                    break;
+                        countEgal++;
+                        break;
+                    case "*":
+                        if (countEgal == 0)
+                        {
+                            if (!rezultatMic.Text.Contains("="))
+                            {
+                                calculator.Rezultat = Convert.ToDouble(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' ')));
+                                rezultatMic.Text += " " + rezultatMare.Text + " =";
+                                rezultatMare.Text = Convert.ToString(calculator.Inmulteste(Convert.ToDouble(rezultatMare.Text)));
+                            }
+                            else
+                                rezultatMic.Text.Replace('=', '*');
+                            
+                        }
+                        else
+                        {
+                            rezultatMic.Text = rezultatMic.Text.Replace(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' '))
+                            , rezultatMare.Text);
+                            calculator.Rezultat = Convert.ToDouble(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' ')));
+                            Console.WriteLine(calculator.Rezultat);
+                            rezultatMare.Text = Convert.ToString(calculator.Scade(Convert.ToDouble
+                                (rezultatMic.Text.Substring(rezultatMic.Text.IndexOf('*') + 1
+                                , rezultatMic.Text.LastIndexOf(' ') - rezultatMic.Text.IndexOf('*')).Trim())));
+                        }
+                        countEgal++;
+                        break;
+                    case "/":
+                        if (countEgal == 0)
+                        {
+                            if (!rezultatMic.Text.Contains("="))
+                            {
+                                if (!rezultatMic.Text.Substring(rezultatMic.Text.LastIndexOf(' '), 2).Trim().Equals("0"))
+                                {
+                                    calculator.Rezultat = Convert.ToDouble(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' ')));
+                                    rezultatMic.Text += " " + rezultatMare.Text + " =";
+                                    rezultatMare.Text = Convert.ToString(calculator.Imparte(Convert.ToDouble(rezultatMare.Text)));
+                                }
+                                else
+                                {
+                                    rezultatMare.Text = "Cannot divide by 0";
+                                }
+                            }else
+                                rezultatMic.Text.Replace('=', '/');
+
+                        }
+                        else
+                        {
+                  
+                            if (!rezultatMic.Text.Substring(rezultatMic.Text.IndexOf('/') + 1
+                                , rezultatMic.Text.LastIndexOf(' ') - rezultatMic.Text.IndexOf('/')).Trim().Equals("0"))
+                            {
+                                rezultatMic.Text = rezultatMic.Text.Replace(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' '))
+                                , rezultatMare.Text);
+                                calculator.Rezultat = Convert.ToDouble(rezultatMic.Text.Substring(0, rezultatMic.Text.IndexOf(' ')));
+                                Console.WriteLine(calculator.Rezultat);
+                                rezultatMare.Text = Convert.ToString(calculator.Scade(Convert.ToDouble
+                                (rezultatMic.Text.Substring(rezultatMic.Text.IndexOf('/') + 1
+                                , rezultatMic.Text.LastIndexOf(' ') - rezultatMic.Text.IndexOf('/')).Trim())));
+                            }
+                            else
+                            {
+                                rezultatMare.Text = "Cannot divide by 0";
+                            }
+                        }
+                        countEgal++;
+                        break;
+                }
+            }
+            else
+            {
+                rezultatMic.Text = rezultatMare.Text + " =";
             }
         }
 
@@ -431,22 +532,22 @@ namespace GUIDemo
 
         private void button_adaugare_Leave_Focus(object sender, EventArgs e)
         {
-           //rezultatMare.ResetText();
+            //count = 0;
         }
 
         private void button_scadere_Leave_Focus(object sender, EventArgs e)
         {
-           //rezultatMare.ResetText();
+            //count = 0;
         }
 
         private void button_inmultire_Leave_Focus(object sender, EventArgs e)
         {
-             //rezultatMare.ResetText();
+            //count = 0;
         }
 
         private void button_impartire_Leave_Focus(object sender, EventArgs e)
         {
-           //rezultatMare.ResetText();
+            //count = 0;
         }
 
         private void button_egal_Leave_Focus(object sender, EventArgs e)
@@ -456,7 +557,20 @@ namespace GUIDemo
 
         private void button_adaugare_memorie_Leave_Focus(object sender, EventArgs e)
         {
-            countEgal = 0;
+            //countEgal = 0;
         }
+
+        public static string ReplaceFirst(string str, string term, string replace)
+        {
+            int position = str.IndexOf(term);
+            if (position < 0)
+            {
+                return str;
+            }
+            str = str.Substring(0, position) + replace + str.Substring(position + term.Length);
+            return str;
+        }
+
     }
+
 }

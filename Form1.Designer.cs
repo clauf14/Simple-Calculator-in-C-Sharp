@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button_unu_impartit = new System.Windows.Forms.Button();
             this.button_ridicare_putere = new System.Windows.Forms.Button();
             this.button_radical = new System.Windows.Forms.Button();
@@ -471,8 +472,9 @@
             this.Controls.Add(this.button_radical);
             this.Controls.Add(this.button_ridicare_putere);
             this.Controls.Add(this.button_unu_impartit);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Clau\'s Calculator";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
