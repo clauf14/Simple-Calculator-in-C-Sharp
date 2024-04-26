@@ -21,6 +21,8 @@ namespace GUIDemo
         public Form1()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             rezultatMare.Text = "0";
             rezultatMic.ResetText();
             if (memorie.Count() == 0)
