@@ -12,11 +12,11 @@ The app also features **Memory**, where you can save(**MEM**) various number and
 
 The interface is created in Microsoft Windows Forms, integrated in Visual Studio IDE. <br> <br>
 **Default screen when entering the app**<br>
- ![alt text](https://github.com/clauf14/Simple-Calculator-in-C-Sharp/blob/main/poze/1.PNG)<br>
+ ![alt text](https://github.com/clauf14/Simple-Calculator-in-C-Sharp/blob/main/poze/11.PNG)<br>
 **After a simple operation**<br>
- ![alt text](https://github.com/clauf14/Simple-Calculator-in-C-Sharp/blob/main/poze/2.PNG)<br>
+ ![alt text](https://github.com/clauf14/Simple-Calculator-in-C-Sharp/blob/main/poze/22.PNG)<br>
  **Memory window**<br>
- ![alt text](https://github.com/clauf14/Simple-Calculator-in-C-Sharp/blob/main/poze/3.PNG)<br>
+ ![alt text](https://github.com/clauf14/Simple-Calculator-in-C-Sharp/blob/main/poze/33.PNG)<br>
 
 ## Run Locally
 
